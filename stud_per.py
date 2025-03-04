@@ -1,8 +1,8 @@
-import pandas as pd
-import numpy as np
-import streamlit as st
+import pandas as pd # type: ignore
+import numpy as np # type: ignore
+import streamlit as st # type: ignore
 import pickle
-from sklearn.preprocessing import StandardScaler,LabelEncoder
+from sklearn.preprocessing import StandardScaler,LabelEncoder # type: ignore
 
 
 def load_model():
