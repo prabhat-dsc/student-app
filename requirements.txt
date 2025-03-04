@@ -3,4 +3,3 @@ pandas
 scikit-learn
 seaborn
 streamlit
-pickle5
