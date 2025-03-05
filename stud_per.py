@@ -22,7 +22,7 @@ def predict_data(data):
     return prediction
 
 def main():
-    st.title("Welcome to Ms. Lucky Singh prediction App")
+    st.title("Welcome to Ms. Prabhat Singh prediction App")
     st.write(" Enter the data  to get your performance Index !!")
     Study_Hours=st.number_input('Study_Hours',min_value=0,max_value=9,value=0)
     Previous_Scores=st.number_input('Previous_Scores',min_value=40,max_value=99,value=45)
