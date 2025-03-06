@@ -1,9 +1,16 @@
-import pandas as pd # type: ignore
-import numpy as np # type: ignore
-import streamlit as st # type: ignore
+import pandas as pd 
+import numpy as np 
+import streamlit as st 
 import pickle
-from sklearn.preprocessing import StandardScaler,LabelEncoder # type: ignore
+from sklearn.preprocessing import StandardScaler,LabelEncoder
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 
+uri = "mongodb+srv://prabhatdsc487:prabha123@app-cluster.9joou.mongodb.net/?retryWrites=true&w=majority&appName=app-cluster"
+# Create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi('1'))
+db=client['student']
+collection=db['student_pred']
 
 def load_model():
     with open('student_lr_final_model.pkl','rb') as file:
@@ -39,6 +46,11 @@ def main():
         }
         prediction=  predict_data(user_data)  
         st.success(f'Your prediction result is:: {prediction}')
+        user_data['prediction']=int(prediction)
+        user_data['Extracurricular Activities']=int(user_data['Extracurricular Activities'])
+  
+        collection.insert_one(user_data)
+        st.success(f'user data is inserted to DB')
 
 if __name__=='__main__':
     main()
