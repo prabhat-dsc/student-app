@@ -50,7 +50,7 @@ def main():
         user_data['Extracurricular Activities']=int(user_data['Extracurricular Activities'])
   
         collection.insert_one(user_data)
-        st.success(f'user data is inserted to DB')
+        
 
 if __name__=='__main__':
     main()
