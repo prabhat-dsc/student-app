@@ -18,7 +18,7 @@ def main():
     st.write(" Select  India Vs Newzealand !!")
     Poll=st.selectbox('Poll',['India','Newzealand'])
 
-    if st.button("SUMIT"):
+    if st.button("SUBMIT"):
         user_data={
             'Name':Name,
             'City':City,
